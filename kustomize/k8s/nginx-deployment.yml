@@ -1,0 +1,13 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+    company: test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx

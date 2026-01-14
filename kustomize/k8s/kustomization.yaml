@@ -1,0 +1,8 @@
+#  Kubernetes resources to be managed by kustomize
+resources:
+  - nginx-deployment.yml
+  - nginx-service.yml
+
+# Customization that needs to be made
+commonLabels:
+  company: Flex
