@@ -1,0 +1,12 @@
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+
+resources:
+  - rabbitmq-config.yaml
+  - rabbitmq-depl.yaml
+  - rabbitmq-service.yaml
+
+commonLabels:
+  feature: queue
+
+nameSuffix: -message-broker

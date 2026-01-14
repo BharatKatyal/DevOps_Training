@@ -131,3 +131,47 @@ Port 53 Default port for a DNS Server
 
 
 --- Network namespaces ---
+
+Namespaces - 
+If host is your house, the rooms are the namespaces
+Each child has a room, each child can only see whats within their room and they cannot see what is outside of their room
+
+However as a parent you have visabilkity to the whole house and the rooms, and you can create connectibity between them
+
+Prcocess Namespace ---
+When you create a container you want to make sure its isolated so it cannot see any other processes or conatiners on the host. It thinks its on its own hoist
+
+ps aux - list processes on the container
+
+When you run that on a host you can see all the processes running within the conatiners 
+
+Network Namespaces
+
+Routing and ARP Table
+
+
+Create a new network namespace on Linux Host
+ip netns add red 
+ip netns add blue
+
+ip netns 
+
+ip link command to 
+
+Connect two namespaces toghther with a virtual cable with two interfaces like connection two computers
+
+ip link add veth-red type beth peer name veth-blue
+ip link set veth-red netns red
+ip link set veth-blue netns blue
+
+ip -n red addr add 192.168.15.1 dev veth-red
+ip -n blue addr add 192.168.15.2 dev veth-blue
+ip -n red link set veth-red up
+ip -n blue link set veth-blue up
+ip netns exec red ping 192.168.15.2
+
+What are routing tables and arp tables in linux
+
+
+Linux Bridge can act as a switch
+ 
